@@ -7,7 +7,7 @@
 <link name="base_link">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="24.10724553962157"/>
+    <mass value="5"/>
     <inertia ixx="3.137242" iyy="5.215086" izz="6.337405" ixy="-0.0" iyz="0.0" ixz="0.001793"/>
   </inertial>
   <visual>
@@ -28,7 +28,7 @@
 <link name="left_wheel_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="3.94584037290878"/>
+    <mass value="0.5"/>
     <inertia ixx="0.004768" iyy="0.007892" izz="0.004768" ixy="-0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
@@ -49,7 +49,7 @@
 <link name="right_wheel_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="3.94584037290878"/>
+    <mass value="0.5"/>
     <inertia ixx="0.004768" iyy="0.007892" izz="0.004768" ixy="-0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
@@ -69,7 +69,7 @@
 <link name="caster_left_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.9566426482891641"/>
+    <mass value="0.1"/>
     <inertia ixx="0.000368" iyy="0.000359" izz="0.000359" ixy="0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
@@ -90,7 +90,7 @@
 <link name="caster_right_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.9566426482891641"/>
+    <mass value="0.1"/>
     <inertia ixx="0.000368" iyy="0.000359" izz="0.000359" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
@@ -111,7 +111,7 @@
 <link name="back_box_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="8.949000000000014"/>
+    <mass value=" 1"/>
     <inertia ixx="0.070772" iyy="0.070772" izz="0.107985" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
@@ -132,7 +132,7 @@
 <link name="tower_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="17.584"/>
+    <mass value="2"/>
     <inertia ixx="0.29476" iyy="0.170305" izz="0.296598" ixy="-0.0" iyz="0.0" ixz="-0.007239"/>
   </inertial>
   <visual>
@@ -241,6 +241,12 @@
   <parent link="tower_link_1"/>
   <child link="lidar_link_1"/>
 </joint>
+
+
+
+
+
+
 
 
 <gazebo reference="lidar_link_1">

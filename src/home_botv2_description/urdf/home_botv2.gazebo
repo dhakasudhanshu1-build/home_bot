@@ -5,41 +5,45 @@
 
 <gazebo reference="base_link">
   <material>${body_color}</material>
-  <mu1>0.6</mu1>
-  <mu2>0.6</mu2>
+  <mu1>0.1</mu1>
+  <mu2>0.1</mu2>
   <self_collide>false</self_collide>
   <gravity>true</gravity>
 </gazebo>
 
 <gazebo reference="left_wheel_link_1">
   <material>Gazebo/Black</material>
-  <mu1>1.0</mu1>
-  <mu2>1.0</mu2>
-
+  <mu1>2.0</mu1>
+  <mu2>2.0</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
   <self_collide>false</self_collide>
 </gazebo>
 
 <gazebo reference="right_wheel_link_1">
   <material>Gazebo/Black</material>
-  <mu1>1.0</mu1>
-  <mu2>1.0</mu2>
-
+  <mu1>2.0</mu1>
+  <mu2>2.0</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
   <self_collide>false</self_collide>
 </gazebo>
 
 <gazebo reference="caster_left_link_1">
   <material>Gazebo/Black</material>
-  <mu1>0.5</mu1>
-  <mu2>0.5</mu2>
-
+  <mu1>0.01</mu1>
+  <mu2>0.01</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
   <self_collide>false</self_collide>
 </gazebo>
 
 <gazebo reference="caster_right_link_1">
   <material>Gazebo/Black</material>
-  <mu1>0.5</mu1>
-  <mu2>0.5</mu2>
-
+  <mu1>0.01</mu1>
+  <mu2>0.01</mu2>
+  <kp>1000000.0</kp>
+  <kd>100.0</kd>
   <self_collide>false</self_collide>
 </gazebo>
 
@@ -72,7 +76,7 @@
 </gazebo>
 
 
-<gazebo>
+<!-- <gazebo>
   <plugin
       filename="libgz_ros2_control-system.so"
       name="gz_ros2_control::GazeboSimROS2ControlPlugin">
@@ -80,8 +84,39 @@
     <parameters>$(find home_botv2_description)/config/controllers.yaml</parameters>
 
   </plugin>
+</gazebo> -->
+
+<gazebo>
+  <plugin
+      filename="libignition-gazebo-diff-drive-system.so"
+      name="ignition::gazebo::systems::DiffDrive">
+
+    <left_joint>Revolute_1</left_joint>
+    <right_joint>Revolute_2</right_joint>
+
+    <wheel_separation>0.38</wheel_separation>
+    <wheel_radius>0.06</wheel_radius>
+
+    <topic>/cmd_vel</topic>
+
+    <odom_topic>/odom</odom_topic>
+
+    <frame_id>odom</frame_id>
+    <child_frame_id>base_link</child_frame_id>
+
+    <publish_odom>true</publish_odom>
+    <publish_odom_tf>true</publish_odom_tf>
+    <publish_wheel_tf>false</publish_wheel_tf>
+
+  </plugin>
 </gazebo>
 
+<gazebo>
+  <plugin
+    filename="gz-sim-joint-state-publisher-system"
+    name="gz::sim::systems::JointStatePublisher">
+  </plugin>
+</gazebo>
 
 
 <gazebo>

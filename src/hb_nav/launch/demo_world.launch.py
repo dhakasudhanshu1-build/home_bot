@@ -102,20 +102,27 @@ def generate_launch_description():
         output='screen'
     )
 
-    # CONTROLLERS
-    joint_state_broadcaster = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["joint_state_broadcaster"],
-        output="screen",
-    )
+    # joint_state_publisher = Node(
+    # package='joint_state_publisher',
+    # executable='joint_state_publisher',
+    # output='screen'
+    # )
 
-    diff_drive_controller = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["diff_cont"],
-        output="screen",
-    )
+
+    # # CONTROLLERS
+    # joint_state_broadcaster = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["joint_state_broadcaster"],
+    #     output="screen",
+    # )
+
+    # diff_drive_controller = Node(
+    #     package="controller_manager",
+    #     executable="spawner",
+    #     arguments=["diff_cont"],
+    #     output="screen",
+    # )
 
     return LaunchDescription([
 
@@ -127,13 +134,15 @@ def generate_launch_description():
 
         ros_gz_bridge,
 
-        TimerAction(
-            period=8.0,
-            actions=[joint_state_broadcaster]
-        ),
+        # joint_state_publisher,
 
-        TimerAction(
-            period=10.0,
-            actions=[diff_drive_controller]
-        ),
+        # TimerAction(
+        #     period=8.0,
+        #     actions=[joint_state_broadcaster]
+        # ),
+
+        # TimerAction(
+        #     period=10.0,
+        #     actions=[diff_drive_controller]
+        # ),
     ])
