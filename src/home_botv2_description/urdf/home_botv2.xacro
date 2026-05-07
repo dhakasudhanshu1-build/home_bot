@@ -1,0 +1,276 @@
+<?xml version="1.0" ?>
+<robot name="home_botv2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find home_botv2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find home_botv2_description)/urdf/home_botv2.ros2control" />
+<xacro:include filename="$(find home_botv2_description)/urdf/home_botv2.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="24.10724553962157"/>
+    <inertia ixx="3.137242" iyy="5.215086" izz="6.337405" ixy="-0.0" iyz="0.0" ixz="0.001793"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 1.5708"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/base_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 1.5708"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/base_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="3.94584037290878"/>
+    <inertia ixx="0.004768" iyy="0.007892" izz="0.004768" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 1.570"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/left_wheel_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 1.570"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/left_wheel_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="3.94584037290878"/>
+    <inertia ixx="0.004768" iyy="0.007892" izz="0.004768" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 -1.570"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/right_wheel_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 -1.570"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/right_wheel_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+<link name="caster_left_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.9566426482891641"/>
+    <inertia ixx="0.000368" iyy="0.000359" izz="0.000359" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/caster_left_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/caster_left_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_right_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.9566426482891641"/>
+    <inertia ixx="0.000368" iyy="0.000359" izz="0.000359" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/caster_right_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/caster_right_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_box_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="8.949000000000014"/>
+    <inertia ixx="0.070772" iyy="0.070772" izz="0.107985" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/back_box_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/back_box_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tower_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="17.584"/>
+    <inertia ixx="0.29476" iyy="0.170305" izz="0.296598" ixy="-0.0" iyz="0.0" ixz="-0.007239"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 1.57"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/tower_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 1.57"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/tower_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.24604626169796384"/>
+    <inertia ixx="0.000124" iyy="1.7e-05" izz="0.000126" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 1.57"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/camera_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 1.57"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/camera_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_link_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.1109767604880594"/>
+    <inertia ixx="1e-05" iyy="1e-05" izz="1.2e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/lidar_link.stl" scale="1 1 1"/>
+    </geometry>
+    <material name="red"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://home_botv2_description/meshes/lidar_link.stl" scale="1 1 1"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute_1" type="continuous">
+  <origin xyz="-0.144945 0.170055 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_link_1"/>
+  <axis xyz="0 1 0"/>
+</joint>
+
+<joint name="Revolute_2" type="continuous">
+  <origin xyz="-0.144945 -0.169945 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_link_1"/>
+  <axis xyz="0 1 0"/>
+</joint>
+
+<joint name="Rigid_3" type="fixed">
+  <origin xyz="0.175055 0.100055 -0.005" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="caster_left_link_1"/>
+</joint>
+
+<joint name="Rigid_4" type="fixed">
+  <origin xyz="0.175055 -0.099945 -0.005" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="caster_right_link_1"/>
+</joint>
+
+<joint name="Rigid_5" type="fixed">
+  <origin xyz="-0.1 0 0.22" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="back_box_link_1"/>
+</joint>
+
+<joint name="Rigid_6" type="fixed">
+  <origin xyz="0 0 0.22" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="tower_link_1"/>
+</joint>
+
+<joint name="Rigid_7" type="fixed">
+  <origin xyz="0 -0.02 0.29" rpy="0 0 0"/>
+  <parent link="tower_link_1"/>
+  <child link="camera_link_1"/>
+</joint>
+
+<joint name="Rigid_8" type="fixed">
+  <origin xyz="0.0 0.015 0.3" rpy="0 0 0"/>
+  <parent link="tower_link_1"/>
+  <child link="lidar_link_1"/>
+</joint>
+
+
+<gazebo reference="lidar_link_1">
+  <sensor name="gpu_lidar" type="gpu_lidar">
+    <update_rate>10</update_rate>
+    <always_on>true</always_on>
+    <visualize>true</visualize>
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>640</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14159</min_angle>
+          <max_angle>3.14159</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.08</min>
+        <max>12.0</max>
+        <resolution>0.01</resolution>
+      </range>
+    </lidar>
+    <always_on>1</always_on>
+    <visualize>true</visualize>
+    <topic>scan</topic>
+    <gz_frame_id>lidar_link_1</gz_frame_id>
+  </sensor>
+
+</gazebo>
+
+
+
+</robot>
