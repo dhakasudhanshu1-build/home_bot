@@ -7,8 +7,8 @@
 <link name="base_link">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="5"/>
-    <inertia ixx="3.137242" iyy="5.215086" izz="6.337405" ixy="-0.0" iyz="0.0" ixz="0.001793"/>
+    <mass value="5.0"/>
+    <inertia ixx="0.040" iyy="0.040" izz="0.072" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 1.5708"/>
@@ -18,9 +18,10 @@
     <material name="blue"/>
   </visual>
   <collision>
-    <origin xyz="0 0 0" rpy="0 0 1.5708"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://home_botv2_description/meshes/base_link.stl" scale="1 1 1"/>
+      <!-- <mesh filename="package://home_botv2_description/meshes/base_link.stl" scale="1 1 1"/> -->
+      <box size="0.45 0.35 0.12"/>
     </geometry>
   </collision>
 </link>
@@ -29,7 +30,7 @@
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <mass value="0.5"/>
-    <inertia ixx="0.004768" iyy="0.007892" izz="0.004768" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+    <inertia ixx="0.000516" iyy="0.0009" izz="0.000516" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 1.570"/>
@@ -39,9 +40,10 @@
     <material name="black"/>
   </visual>
   <collision>
-    <origin xyz="0 0 0" rpy="0 0 1.570"/>
+    <origin xyz="0 0 0" rpy="1.5708 0 0"/>
     <geometry>
-      <mesh filename="package://home_botv2_description/meshes/left_wheel_link.stl" scale="1 1 1"/>
+      <!-- <mesh filename="package://home_botv2_description/meshes/left_wheel_link.stl" scale="1 1 1"/> -->
+      <cylinder radius="0.06" length="0.04"/>
     </geometry>
   </collision>
 </link>
@@ -50,7 +52,7 @@
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <mass value="0.5"/>
-    <inertia ixx="0.004768" iyy="0.007892" izz="0.004768" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+    <inertia ixx="0.000516" iyy="0.0009" izz="0.000516" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 -1.570"/>
@@ -60,9 +62,10 @@
     <material name="black"/>
   </visual>
   <collision>
-    <origin xyz="0 0 0" rpy="0 0 -1.570"/>
+    <origin xyz="0 0 0" rpy="-1.5708 0 0"/>
     <geometry>
-      <mesh filename="package://home_botv2_description/meshes/right_wheel_link.stl" scale="1 1 1"/>
+      <!-- <mesh filename="package://home_botv2_description/meshes/right_wheel_link.stl" scale="1 1 1"/> -->
+      <cylinder radius="0.06" length="0.04"/>
     </geometry>
   </collision>
 </link>
@@ -70,7 +73,7 @@
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <mass value="0.1"/>
-    <inertia ixx="0.000368" iyy="0.000359" izz="0.000359" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+    <inertia ixx="0.000016" iyy="0.000016" izz="0.000016" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -82,7 +85,8 @@
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://home_botv2_description/meshes/caster_left_link.stl" scale="1 1 1"/>
+      <!-- <mesh filename="package://home_botv2_description/meshes/caster_left_link.stl" scale="1 1 1"/> -->
+      <sphere radius="0.02"/> 
     </geometry>
   </collision>
 </link>
@@ -91,7 +95,7 @@
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <mass value="0.1"/>
-    <inertia ixx="0.000368" iyy="0.000359" izz="0.000359" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+    <inertia ixx="0.000016" iyy="0.000016" izz="0.000016" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -103,7 +107,8 @@
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://home_botv2_description/meshes/caster_right_link.stl" scale="1 1 1"/>
+      <!-- <mesh filename="package://home_botv2_description/meshes/caster_right_link.stl" scale="1 1 1"/> -->
+      <sphere radius="0.02"/>
     </geometry>
   </collision>
 </link>
@@ -111,8 +116,8 @@
 <link name="back_box_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value=" 1"/>
-    <inertia ixx="0.070772" iyy="0.070772" izz="0.107985" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <mass value="1.0"/>
+    <inertia ixx="0.0066" iyy="0.0066" izz="0.0066" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -132,8 +137,8 @@
 <link name="tower_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="2"/>
-    <inertia ixx="0.29476" iyy="0.170305" izz="0.296598" ixy="-0.0" iyz="0.0" ixz="-0.007239"/>
+    <mass value="2.0"/>
+    <inertia ixx="0.0079" iyy="0.0079" izz="0.0025" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 1.57"/>
@@ -153,8 +158,8 @@
 <link name="camera_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.24604626169796384"/>
-    <inertia ixx="0.000124" iyy="1.7e-05" izz="0.000126" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <mass value="0.246"/>
+    <inertia ixx="0.0001" iyy="0.0001" izz="0.0001" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 1.57"/>
@@ -174,8 +179,8 @@
 <link name="lidar_link_1">
   <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.1109767604880594"/>
-    <inertia ixx="1e-05" iyy="1e-05" izz="1.2e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <mass value="0.11"/>
+    <inertia ixx="0.000066" iyy="0.000066" izz="0.000088" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -207,13 +212,13 @@
 </joint>
 
 <joint name="Rigid_3" type="fixed">
-  <origin xyz="0.175055 0.100055 -0.005" rpy="0 0 0"/>
+  <origin xyz="0.175055 0.100055 -0.02" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="caster_left_link_1"/>
 </joint>
 
 <joint name="Rigid_4" type="fixed">
-  <origin xyz="0.175055 -0.099945 -0.005" rpy="0 0 0"/>
+  <origin xyz="0.175055 -0.099945 -0.02" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="caster_right_link_1"/>
 </joint>
@@ -251,20 +256,20 @@
 
 <gazebo reference="lidar_link_1">
   <sensor name="gpu_lidar" type="gpu_lidar">
-    <update_rate>10</update_rate>
+    <update_rate>20</update_rate>
     <always_on>true</always_on>
     <visualize>true</visualize>
     <lidar>
       <scan>
         <horizontal>
-          <samples>640</samples>
+          <samples>320</samples>
           <resolution>1</resolution>
           <min_angle>-3.14159</min_angle>
           <max_angle>3.14159</max_angle>
         </horizontal>
       </scan>
       <range>
-        <min>0.08</min>
+        <min>0.30</min>
         <max>12.0</max>
         <resolution>0.01</resolution>
       </range>
@@ -272,6 +277,7 @@
     <always_on>1</always_on>
     <visualize>true</visualize>
     <topic>scan</topic>
+    <ignition_frame_id>lidar_link_1</ignition_frame_id>
     <gz_frame_id>lidar_link_1</gz_frame_id>
   </sensor>
 

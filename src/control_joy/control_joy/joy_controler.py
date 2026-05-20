@@ -13,7 +13,7 @@ class JoyToTwistNode(Node):
             10)
         self.publisher = self.create_publisher(
             Twist,
-            '/diff_cont/cmd_vel_unstamped',
+            '/cmd_vel',
             10
         )
         self.get_logger().info('Joy to Twist node started.')
@@ -21,8 +21,8 @@ class JoyToTwistNode(Node):
     def joy_callback(self, msg: Joy):
         twist = Twist()
         # Map joystick axes to Twist message
-        twist.linear.x = msg.axes[1] * 3  # Assuming forward/backward on left stick Y-axis
-        twist.angular.z = msg.axes[3] * 2.5  # Assuming left/right on left stick X-axis
+        twist.linear.x = msg.axes[1] * 1.5  # Assuming forward/backward on left stick Y-axis
+        twist.angular.z = msg.axes[3] * 1  # Assuming left/right on left stick X-axis
         self.publisher.publish(twist)
 
 def main(args=None):
