@@ -134,11 +134,11 @@
     <!-- ===== Furniture: desks (boxes) ===== -->
     <model name="desk_1">
       <static>true</static>
-      <pose>-3 3.0 0.4 0 0 0</pose>
+      <pose>-3 3.0 0.6 0 0 0</pose>
       <link name="link">
-        <collision name="col"><geometry><box><size>1.2 0.6 0.75</size></box></geometry></collision>
+        <collision name="col"><geometry><box><size>1.2 0.6 1.2</size></box></geometry></collision>
         <visual name="vis">
-          <geometry><box><size>1.2 0.6 0.75</size></box></geometry>
+          <geometry><box><size>1.2 0.6 1.2</size></box></geometry>
           <material><ambient>0.55 0.35 0.15 1</ambient><diffuse>0.55 0.35 0.15 1</diffuse></material>
         </visual>
       </link>
@@ -146,11 +146,11 @@
 
     <model name="desk_2">
       <static>true</static>
-      <pose>2.5 3.0 0.4 0 0 0</pose>
+      <pose>2.5 3.0 0.6 0 0 0</pose>
       <link name="link">
-        <collision name="col"><geometry><box><size>1.2 0.6 0.75</size></box></geometry></collision>
+        <collision name="col"><geometry><box><size>1.2 0.6 1.2</size></box></geometry></collision>
         <visual name="vis">
-          <geometry><box><size>1.2 0.6 0.75</size></box></geometry>
+          <geometry><box><size>1.2 0.6 1.2</size></box></geometry>
           <material><ambient>0.55 0.35 0.15 1</ambient><diffuse>0.55 0.35 0.15 1</diffuse></material>
         </visual>
       </link>
@@ -158,11 +158,11 @@
 
     <model name="desk_3">
       <static>true</static>
-      <pose>3.0 -2.5 0.4 0 0 1.5708</pose>
+      <pose>3.0 -2.5 0.6 0 0 1.5708</pose>
       <link name="link">
-        <collision name="col"><geometry><box><size>1.2 0.6 0.75</size></box></geometry></collision>
+        <collision name="col"><geometry><box><size>1.2 0.6 1.2</size></box></geometry></collision>
         <visual name="vis">
-          <geometry><box><size>1.2 0.6 0.75</size></box></geometry>
+          <geometry><box><size>1.2 0.6 1.2</size></box></geometry>
           <material><ambient>0.55 0.35 0.15 1</ambient><diffuse>0.55 0.35 0.15 1</diffuse></material>
         </visual>
       </link>
@@ -173,9 +173,9 @@
       <static>true</static>
       <pose>-3 2.2 0.25 0 0 0</pose>
       <link name="link">
-        <collision name="col"><geometry><box><size>0.5 0.5 0.45</size></box></geometry></collision>
+        <collision name="col"><geometry><box><size>0.5 0.7 0.7</size></box></geometry></collision>
         <visual name="vis">
-          <geometry><box><size>0.5 0.5 0.45</size></box></geometry>
+          <geometry><box><size>0.5 0.7 0.7</size></box></geometry>
           <material><ambient>0.2 0.2 0.5 1</ambient><diffuse>0.2 0.2 0.5 1</diffuse></material>
         </visual>
       </link>
@@ -185,9 +185,9 @@
       <static>true</static>
       <pose>2.5 2.2 0.25 0 0 0</pose>
       <link name="link">
-        <collision name="col"><geometry><box><size>0.5 0.5 0.45</size></box></geometry></collision>
+        <collision name="col"><geometry><box><size>0.5 0.7 0.7</size></box></geometry></collision>
         <visual name="vis">
-          <geometry><box><size>0.5 0.5 0.45</size></box></geometry>
+          <geometry><box><size>0.5 0.7 0.7</size></box></geometry>
           <material><ambient>0.2 0.2 0.5 1</ambient><diffuse>0.2 0.2 0.5 1</diffuse></material>
         </visual>
       </link>
@@ -202,6 +202,59 @@
         <visual name="vis">
           <geometry><box><size>0.3 2.0 1.5</size></box></geometry>
           <material><ambient>0.4 0.25 0.1 1</ambient><diffuse>0.4 0.25 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ===== Additional Obstacles (Box Pillars) ===== -->
+    <!-- Tall slate-blue obstacle in Room C (South-West corner) -->
+    <model name="obstacle_box_1">
+      <static>true</static>
+      <pose>-3.5 -3.5 0.75 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.8 0.8 1.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.8 0.8 1.5</size></box></geometry>
+          <material><ambient>0.2 0.3 0.4 1</ambient><diffuse>0.2 0.3 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tall slate-blue obstacle in Room D (South-East near wall) -->
+    <model name="obstacle_box_2">
+      <static>true</static>
+      <pose>2.0 -3.5 0.75 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.8 0.8 1.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.8 0.8 1.5</size></box></geometry>
+          <material><ambient>0.2 0.3 0.4 1</ambient><diffuse>0.2 0.3 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tall dark-gray obstacle in Room D (East side open area) -->
+    <model name="obstacle_box_3">
+      <static>true</static>
+      <pose>3.5 0.0 0.75 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.7 0.7 1.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.7 0.7 1.5</size></box></geometry>
+          <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tall dark-gray obstacle in Room A (North-West) -->
+    <model name="obstacle_box_4">
+      <static>true</static>
+      <pose>-1.5 4.0 0.75 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.7 0.7 1.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.7 0.7 1.5</size></box></geometry>
+          <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
         </visual>
       </link>
     </model>
