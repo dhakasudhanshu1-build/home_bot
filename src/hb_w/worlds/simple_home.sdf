@@ -1,0 +1,284 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="simple_home">
+
+    <!-- ===== Required Ignition Gazebo System Plugins ===== -->
+    <plugin filename="libignition-gazebo-physics-system.so" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="libignition-gazebo-user-commands-system.so" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="libignition-gazebo-contact-system.so" name="ignition::gazebo::systems::Contact"/>
+
+    <!-- ===== Lighting ===== -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.3 0.3 0.3 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- ===== Floor ===== -->
+    <model name="floor">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+          <material>
+            <ambient>0.7 0.65 0.55 1</ambient>
+            <diffuse>0.7 0.65 0.55 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ===== Outer Walls (12m x 10m) ===== -->
+    
+    <!-- North Wall -->
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0 5 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>12.4 0.2 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>12.4 0.2 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.85 0.82 0.78 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- West Wall -->
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-6 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.2 10 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.2 10 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.85 0.82 0.78 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- East Wall -->
+    <model name="wall_east">
+      <static>true</static>
+      <pose>6 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.2 10 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.2 10 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.85 0.82 0.78 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- South Wall Left (West side of main door) -->
+    <model name="wall_south_left">
+      <static>true</static>
+      <pose>-3.5 -5 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>5.2 0.2 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>5.2 0.2 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.85 0.82 0.78 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- South Wall Right (East side of main door) -->
+    <!-- The gap between Left and Right is 2 meters wide for the Main Door -->
+    <model name="wall_south_right">
+      <static>true</static>
+      <pose>3.5 -5 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>5.2 0.2 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>5.2 0.2 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.85 0.82 0.78 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+
+    <!-- ===== Interior Dividers ===== -->
+
+    <!-- Horizontal Divider H1 (separates Room 1 from Kitchen) -->
+    <model name="divider_h1">
+      <static>true</static>
+      <pose>-4.875 1 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>2.25 0.2 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>2.25 0.2 2.5</size></box></geometry>
+          <material><ambient>0.82 0.78 0.72 1</ambient><diffuse>0.82 0.78 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Horizontal Divider H2 (separates Rooms from Hall) -->
+    <!-- Room 1 and Room 2 doors are 1.5m wide gaps between H1/H2 and H2/H3 -->
+    <model name="divider_h2">
+      <static>true</static>
+      <pose>0 1 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>4.5 0.2 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>4.5 0.2 2.5</size></box></geometry>
+          <material><ambient>0.82 0.78 0.72 1</ambient><diffuse>0.82 0.78 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Horizontal Divider H3 (separates Room 2 from Dining Area) -->
+    <model name="divider_h3">
+      <static>true</static>
+      <pose>4.875 1 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>2.25 0.2 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>2.25 0.2 2.5</size></box></geometry>
+          <material><ambient>0.82 0.78 0.72 1</ambient><diffuse>0.82 0.78 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Vertical Divider (separates Room 1 and Room 2) -->
+    <model name="divider_v_rooms">
+      <static>true</static>
+      <pose>0 3 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.2 4 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.2 4 2.5</size></box></geometry>
+          <material><ambient>0.82 0.78 0.72 1</ambient><diffuse>0.82 0.78 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Vertical Divider (separates Kitchen from Hall, Top part) -->
+    <model name="divider_v_kitchen_1">
+      <static>true</static>
+      <pose>-2 -0.125 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.2 2.25 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.2 2.25 2.5</size></box></geometry>
+          <material><ambient>0.82 0.78 0.72 1</ambient><diffuse>0.82 0.78 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Vertical Divider (separates Kitchen from Hall, Bottom part) -->
+    <!-- 1.5m gap for Kitchen door -->
+    <model name="divider_v_kitchen_2">
+      <static>true</static>
+      <pose>-2 -3.875 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.2 2.25 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.2 2.25 2.5</size></box></geometry>
+          <material><ambient>0.82 0.78 0.72 1</ambient><diffuse>0.82 0.78 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Vertical Divider (separates Dining from Hall, Top part) -->
+    <model name="divider_v_dining_1">
+      <static>true</static>
+      <pose>2 -0.125 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.2 2.25 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.2 2.25 2.5</size></box></geometry>
+          <material><ambient>0.82 0.78 0.72 1</ambient><diffuse>0.82 0.78 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Vertical Divider (separates Dining from Hall, Bottom part) -->
+    <!-- 1.5m gap for Dining area door -->
+    <model name="divider_v_dining_2">
+      <static>true</static>
+      <pose>2 -3.875 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.2 2.25 2.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.2 2.25 2.5</size></box></geometry>
+          <material><ambient>0.82 0.78 0.72 1</ambient><diffuse>0.82 0.78 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+
+    <!-- ===== Solid Block Furniture (All dimensions > 0.4m) ===== -->
+
+    <!-- Sofa in Hall -->
+    <model name="sofa_block">
+      <static>true</static>
+      <pose>0 -1.0 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>2.0 0.8 0.6</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>2.0 0.8 0.6</size></box></geometry>
+          <material><ambient>0.4 0.4 0.4 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Dining Table in Dining Area -->
+    <model name="dining_table_block">
+      <static>true</static>
+      <pose>4.0 -2.0 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>1.5 1.0 0.8</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>1.5 1.0 0.8</size></box></geometry>
+          <material><ambient>0.5 0.3 0.1 1</ambient><diffuse>0.5 0.3 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Kitchen Counter in Kitchen -->
+    <model name="kitchen_counter_block">
+      <static>true</static>
+      <pose>-4.0 -1.0 0.45 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>2.5 0.8 0.9</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>2.5 0.8 0.9</size></box></geometry>
+          <material><ambient>0.8 0.8 0.9 1</ambient><diffuse>0.8 0.8 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Bed in Room 1 -->
+    <model name="bed_1_block">
+      <static>true</static>
+      <pose>-4.0 4.0 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>2.0 1.5 0.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>2.0 1.5 0.5</size></box></geometry>
+          <material><ambient>0.2 0.3 0.6 1</ambient><diffuse>0.2 0.3 0.6 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Bed in Room 2 -->
+    <model name="bed_2_block">
+      <static>true</static>
+      <pose>4.0 4.0 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>2.0 1.5 0.5</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>2.0 1.5 0.5</size></box></geometry>
+          <material><ambient>0.6 0.2 0.2 1</ambient><diffuse>0.6 0.2 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

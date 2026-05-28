@@ -16,7 +16,7 @@ def generate_launch_description():
     pkg_w = get_package_share_directory('hb_w')
 
     # 1. World File — Ignition-native SDF (no external model dependencies)
-    world_file = os.path.join(pkg_w, 'worlds', 'office_small.sdf')
+    world_file = os.path.join(pkg_w, 'worlds', 'simple_home.sdf')
 
     # 2. Robot Description
     robot_description_file = os.path.join(

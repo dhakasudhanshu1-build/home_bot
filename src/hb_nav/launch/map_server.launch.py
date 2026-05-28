@@ -13,7 +13,7 @@ def generate_launch_description():
     map_file = os.path.join(
         pkg_share,
         'maps',
-        'home_map.yaml'
+        'home2map.yaml'
     )
 
     # RVIZ CONFIG PATH

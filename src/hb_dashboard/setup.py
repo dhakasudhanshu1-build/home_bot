@@ -1,8 +1,6 @@
 from setuptools import find_packages, setup
-from glob import glob
-import os
 
-package_name = 'hb_nav'
+package_name = 'hb_dashboard'
 
 setup(
     name=package_name,
@@ -12,12 +10,6 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
-        (os.path.join('share', package_name, 'worlds'), glob('worlds/*.sdf')),
-        (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
-        (os.path.join('share', package_name, 'maps'), glob('maps/*.yaml')),
-        (os.path.join('share', package_name, 'maps'), glob('maps/*.pgm')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -32,8 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'waypoint_manager = hb_nav.waypoint_manager:main',
-            'task_executor = hb_nav.task_executor:main',
+            'server = hb_dashboard.server:main',
         ],
     },
 )
